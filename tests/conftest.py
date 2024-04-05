@@ -17,4 +17,7 @@ def prepare_output_file(tmp_path):
 
 @pytest.fixture()
 def prepare_empty_file(tmp_path):
-    return os.path.join(tmp_path, 'empty.txt')
+    file_path = os.path.join(tmp_path, 'empty.txt')
+    with open(file_path, 'w') as file:
+        pass
+    return file_path

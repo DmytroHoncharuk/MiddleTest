@@ -2,7 +2,10 @@ import pytest
 from main import filter_lines
 
 
-
+def test_filter_lines_returns_empty_list_when_file_is_empty(prepare_empty_file):
+    keyword = 'test'
+    result = filter_lines(prepare_empty_file, keyword)
+    assert result == []
 def test_filter_lines_returns_empty_list_when_keyword_is_not_present(prepare_input_file):
     keyword = 'test'
     result = filter_lines(prepare_input_file, keyword)

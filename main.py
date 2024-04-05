@@ -37,7 +37,7 @@ def write_to_file(lines, output_file):
         print(f"Error writing to file '{output_file}'.")
 
 
-def filter_lines(input_file, keyword, output_file):
+def filter_lines(input_file, keyword):
     try:
         with open(input_file, 'r') as f_in:
             lines = f_in.readlines()
@@ -46,10 +46,19 @@ def filter_lines(input_file, keyword, output_file):
         return
 
     filtered_lines = [line for line in lines if keyword in line]
+    return filtered_lines
 
+def main():
+    input_file = input("Enter the input file name (with .txt extension): ")
+    keyword = input("Enter the keyword to filter lines: ")
+    output_file = "filtered.txt"
+
+    filtered_lines = filter_lines(input_file, keyword)
     if filtered_lines:
         write_to_file(filtered_lines, output_file)
         print(f"Filtered lines containing '{keyword}' have been written to '{output_file}'.")
     else:
         print(f"No lines containing '{keyword}' found in the file.")
 
+if __name__ == "__main__":
+    main()

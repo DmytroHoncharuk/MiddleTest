@@ -36,3 +36,20 @@ def write_to_file(lines, output_file):
     except IOError:
         print(f"Error writing to file '{output_file}'.")
 
+
+def filter_lines(input_file, keyword, output_file):
+    try:
+        with open(input_file, 'r') as f_in:
+            lines = f_in.readlines()
+    except FileNotFoundError:
+        print(f"Error: File '{input_file}' not found.")
+        return
+
+    filtered_lines = [line for line in lines if keyword in line]
+
+    if filtered_lines:
+        write_to_file(filtered_lines, output_file)
+        print(f"Filtered lines containing '{keyword}' have been written to '{output_file}'.")
+    else:
+        print(f"No lines containing '{keyword}' found in the file.")
+

@@ -12,3 +12,8 @@ def create_test_file(tmpdir):
         f.write("Let's see if our script can do that.\n")
         f.write("Goodbye world!\n")
     return test_file_path
+
+def test_read_files_existing_file(create_test_file):
+    file_path = create_test_file
+    expected_contents = "Hello world!\nThis is a test file containing the word \"world\".\nWe want to filter out the lines containing the word \"world\".\nLet's see if our script can do that.\nGoodbye world!\n"
+    assert read_files(file_path) == expected_contents

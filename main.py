@@ -38,6 +38,20 @@ def write_to_file(lines, output_file):
 
 
 def filter_lines(input_file, keyword):
+    """
+    Filter lines containing a specified keyword from a text file and write them to a new file.
+
+    Args:
+        input_file (str): The name of the input text file (with .txt extension).
+        keyword (str): The keyword used for filtering lines.
+        output_file (str): The name of the output text file where filtered lines will be written.
+
+    Returns:
+        None
+
+    Raises:
+        FileNotFoundError: If the specified input file is not found.
+    """
     try:
         with open(input_file, 'r') as f_in:
             lines = f_in.readlines()

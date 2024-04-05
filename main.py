@@ -16,3 +16,23 @@ def read_files(file_path: str) -> str:
         print("File not found.")
         return None
 
+def write_to_file(lines, output_file):
+    """
+    Write lines to a text file.
+
+    Args:
+        lines (list of str): The list of lines to be written to the output file.
+        output_file (str): The name of the output text file.
+
+    Returns:
+        None
+
+    Raises:
+        IOError: If an error occurs while writing to the output file.
+    """
+    try:
+        with open(output_file, 'w') as f_out:
+            f_out.writelines(lines)
+    except IOError:
+        print(f"Error writing to file '{output_file}'.")
+

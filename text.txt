@@ -1,0 +1,5 @@
+Hello world!
+This is a test file containing the word "world".
+We want to filter out the lines containing the word "world".
+Let's see if our script can do that.
+Goodbye world!

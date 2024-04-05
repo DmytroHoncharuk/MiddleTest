@@ -22,5 +22,4 @@ def test_read_files_existing_file(create_test_file):
 
 
 def test_read_files_non_existing_file(tmpdir):
-    file_path = os.path.join(tmpdir, 'non_existing_file.txt')
-    assert read_files(file_path) is None
+    assert read_files("non_existing_file.txt") is None
